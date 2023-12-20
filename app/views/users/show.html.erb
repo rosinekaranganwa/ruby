@@ -1,10 +1,23 @@
-<p style="color: green"><%= notice %></p>
 
-<%= render @user %>
+<div class="jumbotron">
+  <h1 class="display-4">
+    <%= @user.first_name %>
+    <%= @user.last_name %>
+  </h1>
+  <p class="lead">
+    <%= @user.email %>  | 
+    <%= @user.phone %>  |  
+    <%= @user.twitter %>
 
-<div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Back to users", users_path %>
+  </p>
+  <br/>
 
-  <%= button_to "Destroy this user", @user, method: :delete %>
+  <%= link_to 'Edit', edit_user_path(@user), class:"btn btn-secondary" %>
+
+<%= link_to 'Delete', @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+   
+<%= link_to 'Back', users_path, class:"btn btn-dark" %>
+
 </div>
+
+
